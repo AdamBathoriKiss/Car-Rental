@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-const User = require("../models/User.model");
-const Car = require("../models/Car.model");
+const User = require("../models/Users.model");
+const Car = require("../models/Cars.model");
 
 // GET route for cars/create:
 router.get('/cars/create', (req, res, next) => {
