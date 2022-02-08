@@ -12,7 +12,7 @@ const carSchema = new Schema({
   fuel: String,
   extras: String,
   rentalCost: Number,
-  status: Boolean,
+  status: String,
   startDate: Date,
   endDate: Date,
 });

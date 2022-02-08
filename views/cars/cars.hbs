@@ -1,5 +1,22 @@
 <div class="container">
     <div class="row">
+<ul>
+  {{#each cars}}
+    <li>
+        {{ this.make }} {{ this.model }}<br>
+        <a class="btn btn-info" href="/cars/{{_id}}">Details</a>
+        <a class="btn btn-warning" href="/cars/{{_id}}/edit">Edit</a>
+        <form action="/cars/{{_id}}/delete" method="POST"> {{!-- add the form to handle the POST request to remove a specific book  --}}
+            <button class="btn btn-danger">Delete</button>
+        </form>
+    </li>
+  {{/each}}
+</ul> 
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
         <div class="card col-md-4">
   <img src="https://res.cloudinary.com/djkl0304v/image/upload/v1644327636/honda_quvl55.jpg" class="card-img-top" alt="Honda Civic">
   <div class="card-body">
