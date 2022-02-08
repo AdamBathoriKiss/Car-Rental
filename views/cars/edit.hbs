@@ -2,40 +2,40 @@
 <div class="container bg-light p-5">
   <div class="row">
 
-<form action="/cars/{{cars._id}}/edit" method="post">
+<form action="/cars/{{car._id}}/edit" method="post">
 
   <label for="make">Make</label>
-  <input type="text" class="form-control" name="make" id="make" placeholder="e.g. Volkswagen" value="{{cars.make}}">
+  <input type="text" class="form-control" name="make" id="make" placeholder="e.g. Volkswagen" value="{{car.make}}">
     
   <label for="model">Model</label>
-  <input type="text" class="form-control" name="model" id="model" placeholder="e.g. Sirocco" value="{{cars.model}}">
+  <input type="text" class="form-control" name="model" id="model" placeholder="e.g. Sirocco" value="{{car.model}}">
 
   <label for="yearOfProd">Year of production</label>
-  <input type="text" class="form-control" name="yearOfProd" id="yearOfProd" placeholder="e.g. 2008" value="{{cars.yearOfProd}}">
+  <input type="number" class="form-control" name="yearOfProd" id="yearOfProd" placeholder="e.g. 2008" value="{{car.yearOfProd}}">
 
   <label for="engine">Engine</label>
-  <input type="text" class="form-control" name="engine" id="engine" placeholder="e.g. 1600 ccm3" value="{{cars.engine}}">
+  <input type="text" class="form-control" name="engine" id="engine" placeholder="e.g. 1600 ccm3" value="{{car.engine}}">
 
   <label for="transmission">Transmission</label>
-  <input type="text" class="form-control" name="transmission" id="transmission" placeholder="e.g. Manual" value="{{cars.transmission}}">
+  <input type="text" class="form-control" name="transmission" id="transmission" placeholder="e.g. Manual" value="{{car.transmission}}">
 
   <label for="fuel">Fuel</label>
-  <input type="text" class="form-control" name="fuel" id="fuel" placeholder="e.g. Diesel" value="{{cars.fuel}}">
+  <input type="text" class="form-control" name="fuel" id="fuel" placeholder="e.g. Diesel" value="{{car.fuel}}">
 
   <label for="extras">Extras</label>
-  <input type="text" class="form-control" name="extras" id="extras" placeholder="e.g. Navigation" value="{{cars.extras}}">
+  <input type="text" class="form-control" name="extras" id="extras" placeholder="e.g. Navigation" value="{{car.extras}}">
 
   <label for="rentalCost">Rental Cost</label>
-  <input type="text" class="form-control" name="rentalCost" id="rentalCost" placeholder="e.g. 250$" value="{{cars.rentalCost}}">
+  <input type="number" class="form-control" name="rentalCost" id="rentalCost" placeholder="e.g. 250$" value="{{car.rentalCost}}">
 
   <label for="status">Car Status</label>
-  <input type="text" class="form-control" name="status" id="status" placeholder="e.g. Free" value="{{cars.status}}">
+  <input type="text" class="form-control" name="status" id="status" placeholder="e.g. Free" value="{{car.status}}">
 
   <label for="startDate">Start Date</label>
-  <input type="text" class="form-control" name="startDate" id="startDate" placeholder="e.g. 2022.02.08" value="{{cars.startDate}}">
+  <input type="date" class="form-control" name="startDate" id="startDate" placeholder="e.g. 2022.02.08" value="{{car.startDate}}">
 
   <label for="endDate">End Date</label>
-  <input type="text" class="form-control" name="endDate" id="endDate" placeholder="e.g. 2022.02.10" value="{{cars.endDate}}"> 
+  <input type="date" class="form-control" name="endDate" id="endDate" placeholder="e.g. 2022.02.10" value="{{car.endDate}}"> 
 
 
     <button class="btn btn-success my-4" type="submit">Modify</button>

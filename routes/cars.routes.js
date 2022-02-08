@@ -6,17 +6,18 @@ const Car = require("../models/Cars.model");
 // GET route for cars/create:
 router.get('/cars/create', (req, res, next) => {
   User.find()
-  .then(listOfUsers => res.render('cars/new-car', { user: listOfUsers }))
-  .catch(err => console.log('Error retrieving users list: ', err))
+  .then(listOfUsers => res.render('cars/create', { user: listOfUsers }))
+  .catch(err => console.log('Error retrieving cars list: ', err))
 });
 
 // POST route for cars/create:
 router.post('/cars/create', (req, res, next) => {
   const { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate } = req.body;
 
-  Car.create({make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate  })
+  Car.create({make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate })
   .then(() => res.redirect('/cars'))
-  .catch(err => res.render("cars/create"))
+  // .catch(err => res.render("cars/create"))
+  .catch(err => console.log('Error while creating a new car: ', err))
 });
 
 // GET all cars from the database:
@@ -26,7 +27,7 @@ router.get("/cars", (req, res) => {
       .catch((err) => console.log(`Error while getting cars from the database: ${err}`));
   });
 
-// ET route to display the details of a specific car:
+// GET route to display the details of a specific car:
 router.get('/cars/:carId', (req, res, next) => {
   const { carId } = req.params;
 
@@ -41,8 +42,8 @@ router.get('/cars/:carId/edit', (req, res, next) => {
   const { carId } = req.params;
  
   Car.findById(carId)
-    .populate('engine')
-    .then(carToEdit => res.render('cars/edit-car', { car: carToEdit }))
+    // .populate('engine')
+    .then(carToEdit => res.render('cars/edit', { car: carToEdit }))
     .catch(err => console.log('Error while retrieving car details: ', err));
 });
 
