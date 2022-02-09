@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const User = require('../models/Users.model');
 const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 const bcryptjs = require('bcryptjs');
+const { rawListeners } = require('../models/Users.model');
 const saltRounds = 10;
 
 // GET route to display the signup form to users:
@@ -67,13 +68,13 @@ router.post('/login', (req, res, next) => {
     .catch(error => next(error));
 });
 
-// POST logout:
-router.post('/logout', (req, res, next) => {
-  req.session.destroy(err => {
-    if (err) next(err);
-    res.redirect('/');
+// GET logout:
+router.get('/logout', (req, res, next) => {
+  req.session.destroy((err) => {
+    res.redirect('/') 
   });
 });
+
 
 // GET route to user proile page:
 router.get('/userProfile', isLoggedIn, (req, res) => {
@@ -98,5 +99,7 @@ router.post('/users/:userId/edit', isLoggedIn, (req, res, next) => {
     .then(() => res.redirect(`users/users`))
     .catch(err => console.log('Error while retrieving user details: ', err));
 });
+
+
 
 module.exports = router;
