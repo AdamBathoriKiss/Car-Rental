@@ -13,8 +13,6 @@ const carSchema = new Schema({
   extras: String,
   rentalCost: Number,
   status: String,
-  startDate: Date,
-  endDate: Date,
   imageUrl: {type: String},
   description: String
 });

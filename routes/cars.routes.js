@@ -16,10 +16,10 @@ router.get('/cars/create', (req, res, next) => {
 // Image upload:
 
 router.post('/cars/create', fileUploader.single('car-cover-image'), (req, res, next) => {
-  const { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate , imageUrl, description } = req.body;
+  const { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, imageUrl, description } = req.body;
   console.log(req.body);
 
-  Car.create({make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate, imageUrl: req.file.path, description })
+  Car.create({make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, imageUrl: req.file.path, description })
   .then((createdCar) => {
     console.log(createdCar)
     res.redirect('/cars')})
@@ -62,7 +62,7 @@ router.get('/cars/:carId/edit', (req, res, next) => {
 // POST route to actually make updates on a specific car
 router.post('/cars/:carId/edit', fileUploader.single('car-cover-image'), (req, res, next) => {
   const { carId } = req.params;
-  const { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate, existingImage, description } = req.body;
+  const { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, existingImage, description } = req.body;
 console.log("Testing " + existingImage);
 console.log(req.file);
   let imageUrl;
@@ -72,7 +72,7 @@ console.log(req.file);
     imageUrl = existingImage;
   }
  console.log(imageUrl);
-  Car.findByIdAndUpdate(carId, { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate, imageUrl, description } , {new: true})
+  Car.findByIdAndUpdate(carId, { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, imageUrl, description } , {new: true})
     .then(() => res.redirect(`/cars`))
     .catch(err => console.log('Error while retrieving car details: ', err));
 });
