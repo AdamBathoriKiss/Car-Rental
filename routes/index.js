@@ -6,12 +6,8 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get("/main", isLoggedOut, (req, res, next) => {
-  res.render("main");
-});
-
-router.get("/private", isLoggedIn, (req, res, next) => {
-  res.render("private");
+router.get("/cars", isLoggedIn, (req, res, next) => {
+  res.render("cars");
 });
 
 module.exports = router;
