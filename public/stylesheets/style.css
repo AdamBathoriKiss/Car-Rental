@@ -1,4 +1,6 @@
 body {
+  background: url("https://res.cloudinary.com/hulastar/image/upload/v1644420923/carRental-project/sitebg_rttgxp.jpg") no-repeat center center fixed #FFFFFF;
+  background-size: cover;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
