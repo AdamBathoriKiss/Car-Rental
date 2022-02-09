@@ -4,7 +4,7 @@
         <ul class="userlist">
         {{#each users}}
             <li class="list-group-item">{{this.username}}
-                <a class="btn btn-warning" href="/users/{{_id}}/edit" style="display: inline-block;">Edit</a>
+                <a class="btn btn-warning" href="/users/{{_id}}/edit-profile" style="display: inline-block;">Edit</a>
                 <form action="/users/{{_id}}/delete" method="POST" style="display: inline-block;"> 
                     <button class="btn btn-danger">Delete</button>
                 </form>
