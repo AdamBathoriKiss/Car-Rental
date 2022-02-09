@@ -3,6 +3,7 @@ const router = require("express").Router();
 const User = require("../models/Users.model");
 const Car = require("../models/Cars.model");
 const fileUploader = require('../config/cloudinary.config');
+const { isLoggedOut, isLoggedIn } = require("../middleware/route-guard");
 
 // GET route for cars/create:
 router.get('/cars/create', (req, res, next) => {
@@ -28,11 +29,15 @@ router.post('/cars/create', fileUploader.single('car-cover-image'), (req, res, n
 });
 
 // GET all cars from the database:
-router.get("/cars", (req, res) => {
+router.get("/cars", isLoggedIn, (req, res) => {
+if(req.session){
     Car.find()
-      .then((carsFromDB) => res.render("cars/cars", { cars: carsFromDB }))
-      .catch((err) => console.log(`Error while getting cars from the database: ${err}`));
-  });
+    .then((carsFromDB) => res.render("cars/cars", { cars: carsFromDB }))
+    .catch((err) => console.log(`Error while getting cars from the database: ${err}`));
+    }
+    else {
+      res.redirect("/login");
+    }}); 
 
 // GET route to display the details of a specific car:
 router.get('/cars/:carId', (req, res, next) => {

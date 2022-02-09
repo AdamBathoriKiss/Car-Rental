@@ -11,10 +11,5 @@ router.get("/", (req, res) => {
     .catch((err) => console.log(`Error while getting cars from the database: ${err}`));
 });
 
-//router.get("/cars", isLoggedIn, (req, res, next) => {
-  //res.render("cars/cars");
-//});
-
-
 
 module.exports = router;
