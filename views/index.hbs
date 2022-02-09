@@ -1,78 +1,19 @@
-<h1>{{title}} </h1>
-<p>Welcome Ironhacker!</p>
-
-      {{#if userInSession}}
-    <h2>Welcome, {{ userInSession.username }}!</h2>
-    <p>This is your profile page my friend!</p>
-{{else}}
-    <p>Still no logged in user, sorry!</p>
-{{/if}}
-
-<div class="container">
+<section id="intro">
+  <div class="container">
     <div class="row">
-        <div class="card col-md-4">
-  <img src="https://res.cloudinary.com/djkl0304v/image/upload/v1644327636/honda_quvl55.jpg" class="card-img-top" alt="Honda Civic">
-  <div class="card-body">
-    <h5 class="card-title">{{cars.make}}{{cars.model}}</h5>
-    <p class="card-text">8th Generation of Honda Civic is perfect choice for family vacation.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{cars.make}} </li>
-    <li class="list-group-item">{{cars.model}}</li>
-    <li class="list-group-item">{{cars.yearOfProd}}</li>
-    <li class="list-group-item">{{cars.enginge}}</li>
-    <li class="list-group-item">{{cars.transmission}}</li>
-    <li class="list-group-item">{{cars.fuel}}</li>
-    <li class="list-group-item">{{cars.extras}} </li>
-    <li class="list-group-item">{{cars.rentalCost}}</li>
-  </ul>
-  <div class="card-body">
-    <a href="/cars/edit" class="card-link">Edit</a>
-    <a href="/delete" class="card-link">Delete</a>
-  </div>
-</div>
-<div class="card col-md-4">
-  <img src="https://res.cloudinary.com/djkl0304v/image/upload/v1644327808/colt_rt2ol5.jpg" class="card-img-top" alt="Mitsubishi Colt">
-  <div class="card-body">
-    <h5 class="card-title">{{cars.make}}{{cars.model}}</h5>
-    <p class="card-text">6th Generation of Mitsubishi Colt is a great choice for tourist who would like look around the city.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-     <li class="list-group-item">{{cars.make}} </li>
-    <li class="list-group-item">{{cars.model}}</li>
-    <li class="list-group-item">{{cars.yearOfProd}}</li>
-    <li class="list-group-item">{{cars.enginge}}</li>
-    <li class="list-group-item">{{cars.transmission}}</li>
-    <li class="list-group-item">{{cars.fuel}}</li>
-    <li class="list-group-item">{{cars.extras}} </li>
-    <li class="list-group-item">{{cars.rentalCost}}</li>
-  </ul>
-  <div class="card-body">
-    <a href="/cars/edit" class="card-link">Edit</a>
-    <a href="/delete" class="card-link">Delete</a>
-  </div>
-</div>
-<div class="card col-md-4">
-  <img src="https://res.cloudinary.com/djkl0304v/image/upload/v1644328184/passat2_fr9pk7.jpg" class="card-img-top" alt="Volkswagen Passat 8">
-  <div class="card-body">
-    <h5 class="card-title">{{cars.make}}{{cars.model}}</h5>
-    <p class="card-text">8th Generation of Volkswagen is the best choice for families for long car trips. </p>
-  </div>
-  <ul class="list-group list-group-flush">
-     <li class="list-group-item">{{cars.make}} </li>
-    <li class="list-group-item">{{cars.model}}</li>
-    <li class="list-group-item">{{cars.yearOfProd}}</li>
-    <li class="list-group-item">{{cars.enginge}}</li>
-    <li class="list-group-item">{{cars.transmission}}</li>
-    <li class="list-group-item">{{cars.fuel}}</li>
-    <li class="list-group-item">{{cars.extras}} </li>
-    <li class="list-group-item">{{cars.rentalCost}}</li>
-  </ul>
-  <div class="card-body">
-    <a href="/cars/edit" class="card-link">Edit</a>
-    <a href="/delete" class="card-link">Delete</a>
-  </div>
-</div>
+      <h2 class="text-center py-5">Browse our cars!</h2>
     </div>
-</div>
+  </div>
+</section>
 
+<section id="cars" class="bg-light">
+  <div class="container">
+    <div class="row">
+      <ul>
+        {{#each cars}}
+        <li>{{ this.make }} {{ this.model }}</li>
+        {{/each}}
+      </ul> 
+    </div>
+  </div>
+</section>
