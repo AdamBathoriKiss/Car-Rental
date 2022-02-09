@@ -80,4 +80,23 @@ router.get('/userProfile', isLoggedIn, (req, res) => {
   res.render('users/user-profile', { userInSession: req.session.currentUser });
 });
 
+// GET route to display the form to update user profile:
+router.get('/users/:userId/edit', isLoggedIn, (req, res, next) => {
+  const { userId } = req.params;
+ 
+  User.findById(userId)
+    .then(userToEdit => res.render('users/users', { user: userToEdit }))
+    .catch(err => console.log('Error while retrieving user details: ', err));
+});
+
+// POST route to actually make updates on user profile:
+router.post('/users/:userId/edit', isLoggedIn, (req, res, next) => {
+  const { userId } = req.params;
+  const { firstName, lastName, dateOfBirth, idCardNumber, idDriverLicense, address, email } = req.body;
+ 
+  User.findByIdAndUpdate(userId, { firstName, lastName, dateOfBirth, idCardNumber, idDriverLicense, address, email })
+    .then(() => res.redirect(`users/users`))
+    .catch(err => console.log('Error while retrieving user details: ', err));
+});
+
 module.exports = router;
