@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
      
-<ul>
+
   {{#each cars}}
    <div class="card col-md-4">
   <img src="{{imageUrl}}" class="card-img-top" alt="Honda Civic">
@@ -9,7 +9,7 @@
     <h5 class="card-title">{{this.make}}{{this.model}}</h5>
     <p class="card-text">8th Generation of Honda Civic is perfect choice for family vacation.</p>
   </div>
-    
+    <ul>
     <li class="list-group-item">{{this.make}} </li>
     <li class="list-group-item">{{this.model}}</li>
     <li class="list-group-item">{{this.yearOfProd}}</li>
@@ -18,7 +18,7 @@
     <li class="list-group-item">{{this.fuel}}</li>
     <li class="list-group-item">{{this.extras}} </li>
     <li class="list-group-item">{{this.rentalCost}}</li>
-
+  </ul> 
     <form action="/cars/{{_id}}/delete" method="POST"> 
     <a class="btn btn-warning" href="/cars/{{_id}}/edit">Edit</a>
     <button class="btn btn-danger">Delete</button>
@@ -26,60 +26,12 @@
         </form>
     </div>
   {{/each}}
-</ul> 
+
 </div>
     </div>
     
 
 
-<div class="container">
-
-    <div class="row">
-      
-<div class="card col-md-4">
-  <img src="https://res.cloudinary.com/djkl0304v/image/upload/v1644327808/colt_rt2ol5.jpg" class="card-img-top" alt="Mitsubishi Colt">
-  <div class="card-body">
-    <h5 class="card-title">{{cars.make}}{{cars.model}}</h5>
-    <p class="card-text">6th Generation of Mitsubishi Colt is a great choice for tourist who would like look around the city.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-     <li class="list-group-item">{{cars.make}} </li>
-    <li class="list-group-item">{{cars.model}}</li>
-    <li class="list-group-item">{{cars.yearOfProd}}</li>
-    <li class="list-group-item">{{cars.enginge}}</li>
-    <li class="list-group-item">{{cars.transmission}}</li>
-    <li class="list-group-item">{{cars.fuel}}</li>
-    <li class="list-group-item">{{cars.extras}} </li>
-    <li class="list-group-item">{{cars.rentalCost}}</li>
-  </ul>
-  <div class="card-body">
-    <a href="/cars/edit" class="card-link">Edit</a>
-    <a href="/delete" class="card-link">Delete</a>
-  </div>
-</div>
-<div class="card col-md-4">
-  <img src="https://res.cloudinary.com/djkl0304v/image/upload/v1644328184/passat2_fr9pk7.jpg" class="card-img-top" alt="Volkswagen Passat 8">
-  <div class="card-body">
-    <h5 class="card-title">{{cars.make}}{{cars.model}}</h5>
-    <p class="card-text">8th Generation of Volkswagen is the best choice for families for long car trips. </p>
-  </div>
-  <ul class="list-group list-group-flush">
-     <li class="list-group-item">{{cars.make}} </li>
-    <li class="list-group-item">{{cars.model}}</li>
-    <li class="list-group-item">{{cars.yearOfProd}}</li>
-    <li class="list-group-item">{{cars.enginge}}</li>
-    <li class="list-group-item">{{cars.transmission}}</li>
-    <li class="list-group-item">{{cars.fuel}}</li>
-    <li class="list-group-item">{{cars.extras}} </li>
-    <li class="list-group-item">{{cars.rentalCost}}</li>
-  </ul>
-  <div class="card-body">
-    <a href="/cars/edit" class="card-link">Edit</a>
-    <a href="/delete" class="card-link">Delete</a>
-  </div>
-</div>
-    </div>
-</div>
 
 
 
