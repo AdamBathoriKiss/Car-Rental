@@ -12,6 +12,40 @@
 
    <body>
 
+      <h1 class="text-center my-3 fw-bolder">A&L Car Rental</h1>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+         <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarMain">
+               <ul class="navbar-nav">
+                  <li class="nav-item">
+                     <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/cars">Cars</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/signup">Sign Up</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/login">Log in</a>
+                  </li>
+                  {{#if userInSession}}
+                  <li class="nav-item">
+                     <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/userProfile">User Profile</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/logout">Log out</a>
+                  </li>
+                  {{/if}}
+               </ul>
+            </div>
+         </div>
+      </nav>
+
       {{{body}}}
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
