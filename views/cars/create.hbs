@@ -2,7 +2,7 @@
 <div class="container bg-light p-5">
   <div class="row">
 
-<form action="/cars/create" method="POST">
+<form action="/cars/create" method="POST" enctype="multipart/form-data">
 
   <label for="make">Make</label>
   <input type="text" class="form-control" name="make" id="make" placeholder="e.g. Volkswagen">
@@ -37,6 +37,7 @@
   <label for="endDate">End Date</label>
   <input type="date" class="form-control" name="endDate" id="endDate" placeholder="e.g. 2022.02.10">
   
+  <input type="file" name="car-cover-image" />
 
       <button class="btn btn-success my-4" type="submit">Create</button>
     </form>

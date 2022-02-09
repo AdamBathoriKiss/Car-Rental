@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 const User = require("../models/Users.model");
 const Car = require("../models/Cars.model");
+const fileUploader = require('../config/cloudinary.config');
 
 // GET route for cars/create:
 router.get('/cars/create', (req, res, next) => {
@@ -11,12 +12,18 @@ router.get('/cars/create', (req, res, next) => {
 });
 
 // POST route for cars/create:
-router.post('/cars/create', (req, res, next) => {
-  const { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate } = req.body;
+// Image upload:
 
-  Car.create({make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate })
-  .then(() => res.redirect('/cars'))
+router.post('/cars/create', fileUploader.single('car-cover-image'), (req, res, next) => {
+  const { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate , imageUrl } = req.body;
+  console.log(req.body);
+
+  Car.create({make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate, imageUrl: req.file.path })
+  .then((createdCar) => {
+    console.log(createdCar)
+    res.redirect('/cars')})
   // .catch(err => res.render("cars/create"))
+
   .catch(err => console.log('Error while creating a new car: ', err))
 });
 
@@ -65,5 +72,6 @@ router.post('/cars/:carId/delete', (req, res, next) => {
     .then(() => res.redirect('/cars'))
     .catch(error => next(error));
 });
+
 
 module.exports = router;
