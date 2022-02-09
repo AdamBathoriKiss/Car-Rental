@@ -2,7 +2,7 @@
 <div class="container bg-light p-5">
   <div class="row">
 
-<form action="/cars/{{car._id}}/edit" method="post">
+<form action="/cars/{{car._id}}/edit" method="post" enctype="multipart/form-data">
 
   <label for="make">Make</label>
   <input type="text" class="form-control" name="make" id="make" placeholder="e.g. Volkswagen" value="{{car.make}}">
@@ -31,6 +31,9 @@
   <label for="status">Car Status</label>
   <input type="text" class="form-control" name="status" id="status" placeholder="e.g. Free" value="{{car.status}}">
 
+  <label for="description">Description</label>
+  <input type="text" class="form-control" name="description" id="description" placeholder="e.g. Something about the car">
+
   <label for="startDate">Start Date</label>
   <input type="date" class="form-control" name="startDate" id="startDate" placeholder="e.g. 2022.02.08" value="{{car.startDate}}">
 
@@ -39,7 +42,7 @@
 
   <label>Image:
           <input type="file" name="car-cover-image" class="form-control-file" />
-          <input type="text" name="existingImage" hidden value="{{imageUrl}}">
+          <input type="text" name="existingImage" hidden value="{{car.imageUrl}}">
         </label>
 
 
