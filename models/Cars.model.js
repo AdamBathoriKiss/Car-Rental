@@ -15,7 +15,8 @@ const carSchema = new Schema({
   status: String,
   startDate: Date,
   endDate: Date,
-  imageUrl: {type: String}
+  imageUrl: {type: String},
+  
 });
 
 const Cars = mongoose.model('Cars', carSchema);
