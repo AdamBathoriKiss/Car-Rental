@@ -1,8 +1,14 @@
-<h2>User Profile</h2>
+<div class="container bg-light p-5">
+    <div class="row">
 
-{{#if userInSession}}
-    <h2>Welcome, {{ userInSession.username }}!</h2>
-    <p>This is your profile page my friend!</p>
-{{else}}
-    <p>Still no logged in user, sorry!</p>
-{{/if}}
+    <h2>User Profile</h2>
+
+    {{#if userInSession}}
+        <h4>Welcome, {{ userInSession.username }}!</h4>
+        <p><a class="btn btn-lg btn-warning" href="/users/{{userInSession._id}}/edit-profile">Edit my profile</a></p>
+    {{else}}
+        <p>Please log in.</p>
+    {{/if}}
+
+    </div>
+</div>

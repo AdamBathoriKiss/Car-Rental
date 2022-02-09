@@ -1,0 +1,36 @@
+<h2>Edit User Profile</h2>
+
+<div class="container bg-light p-5">
+  <div class="row">
+
+    <form action="/users/{{user._id}}/edit-profile" method="POST">
+
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Enter your first name" value="{{user.firstName}}">
+    
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter your last name" value="{{user.lastName}}">
+
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth" placeholder="Enter your birth date" value="{{user.dateOfBirth}}">
+
+        <label for="idCardNumber">ID Card Number</label>
+        <input type="text" class="form-control" name="idCardNumber" id="idCardNumber" placeholder="Enter your ID Card Number" value="{{user.idCardNumber}}">
+
+        <label for="idDriverLicense">License Driver ID Number</label>
+        <input type="text" class="form-control" name="idDriverLicense" id="idDriverLicense" placeholder="Enter your License Driver ID Number" value="{{user.idDriverLicense}}">
+
+        <label for="address">Address</label>
+        <input type="text" class="form-control" name="address" id="address" placeholder="Enter your address" value="{{user.address}}">
+
+        <label for="email">Email Adress</label>
+        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your email address" value="{{user.email}}">
+
+        <button class="btn btn-lg btn-success my-4" type="submit">Update my profile</button>
+
+        <a class="btn btn-lg btn-warning my-4" href="/users">Cancel</a>
+
+    </form>
+
+  </div>
+</div> 
