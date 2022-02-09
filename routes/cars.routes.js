@@ -55,11 +55,18 @@ router.get('/cars/:carId/edit', (req, res, next) => {
 });
 
 // POST route to actually make updates on a specific car
-router.post('/cars/:carId/edit', (req, res, next) => {
+router.post('/cars/:carId/edit', fileUploader.single('car-cover-image'), (req, res, next) => {
   const { carId } = req.params;
-  const { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate } = req.body;
+  const { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate, existingImage } = req.body;
+
+  let imageUrl;
+  if (req.file) {
+    imageUrl = req.file.path;
+  } else {
+    imageUrl = existingImage;
+  }
  
-  Car.findByIdAndUpdate(carId, { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate })
+  Car.findByIdAndUpdate(carId, { make, model, yearOfProd, engine, transmission, fuel, extras, rentalCost, status, startDate, endDate, imageUrl } , {new: true})
     .then(() => res.redirect(`/cars`))
     .catch(err => console.log('Error while retrieving car details: ', err));
 });
