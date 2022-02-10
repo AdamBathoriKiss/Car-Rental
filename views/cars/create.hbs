@@ -1,46 +1,60 @@
-<h2>Create a new car</h2>
-<div class="container bg-light p-5">
-  <div class="row">
+<section class="h-100 create-car">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card my-4">
+          <div class="row g-0">
+            <div class="col-xl-12 bg-white bg-gradient border border-info">
+              <div class="card-body p-md-5 text-black">
 
-<form action="/cars/create" method="POST" enctype="multipart/form-data">
+                <h3 class="text-uppercase">Create a new car</h3>
 
-  <label for="make">Make</label>
-  <input type="text" class="form-control" name="make" id="make" placeholder="e.g. Volkswagen">
+                <form action="/cars/create" method="POST" enctype="multipart/form-data">
+
+                  <label for="make">Make:</label>
+                  <input type="text" class="form-control" name="make" id="make" placeholder="e.g. Volkswagen">
     
-  <label for="model">Model</label>
-  <input type="text" class="form-control" name="model" id="model" placeholder="e.g. Sirocco">
+                  <label for="model">Model:</label>
+                  <input type="text" class="form-control" name="model" id="model" placeholder="e.g. Sirocco">
 
-  <label for="yearOfProd">Year of production</label>
-  <input type="number" class="form-control" name="yearOfProd" id="yearOfProd" placeholder="e.g. 2008">
+                  <label for="yearOfProd">Year of production:</label>
+                  <input type="number" class="form-control" name="yearOfProd" id="yearOfProd" placeholder="e.g. 2008">
 
-  <label for="engine">Engine</label>
-  <input type="text" class="form-control" name="engine" id="engine" placeholder="e.g. 1600 ccm3">
+                  <label for="engine">Engine:</label>
+                  <input type="text" class="form-control" name="engine" id="engine" placeholder="e.g. 1600 ccm3">
 
-  <label for="transmission">Transmission</label>
-  <input type="text" class="form-control" name="transmission" id="transmission" placeholder="e.g. Manual">
+                  <label for="transmission">Transmission:</label>
+                  <input type="text" class="form-control" name="transmission" id="transmission" placeholder="e.g. Manual">
 
-  <label for="fuel">Fuel</label>
-  <input type="text" class="form-control" name="fuel" id="fuel" placeholder="e.g. Diesel">
+                  <label for="fuel">Fuel:</label>
+                  <input type="text" class="form-control" name="fuel" id="fuel" placeholder="e.g. Diesel">
 
-  <label for="extras">Extras</label>
-  <input type="text" class="form-control" name="extras" id="extras" placeholder="e.g. Navigation">
+                  <label for="extras">Extras:</label>
+                  <input type="text" class="form-control" name="extras" id="extras" placeholder="e.g. Navigation">
 
-  <label for="rentalCost">Rental Cost</label>
-  <input type="number" class="form-control" name="rentalCost" id="rentalCost" placeholder="e.g. 250$">
+                  <label for="rentalCost">Rental Cost:</label>
+                  <input type="number" class="form-control" name="rentalCost" id="rentalCost" placeholder="e.g. 250$">
 
-  <label for="status">Car Status</label>
-  <input type="text" class="form-control" name="status" id="status" placeholder="e.g. Free">
+                  <label for="status">Status:</label>
+                  <input type="text" class="form-control" name="status" id="status" placeholder="e.g. Free">
 
-  <label for="description">Description</label>
-  <input type="text" class="form-control" name="description" id="description" placeholder="e.g. Something about the car">
-  
-  
-  <input type="file" name="car-cover-image"/>
+                  <label for="description">Description:</label>
+                  <input type="text" class="form-control" name="description" id="description" placeholder="e.g. Something about the car">
 
-      <button class="btn btn-success my-4" type="submit">Create</button>
-    </form>
+                  <label for="car-cover-image">Image:</label>
+                  <input type="file" name="car-cover-image" class="form-control">
 
+                  <button class="btn btn-lg btn-success my-4" type="submit">Create Car</button>
 
-
+                  <a class="btn btn-lg btn-warning my-4" href="/cars">Cancel</a>
+              
+                </form>
+        
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div> 
+</section>

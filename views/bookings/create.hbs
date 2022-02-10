@@ -1,28 +1,44 @@
-<h2>Create a Booking</h2>
+<section class="h-100 edit-car">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card my-4">
+          <div class="row g-0">
+            <div class="col-xl-12 bg-white bg-gradient border border-info">
+              <div class="card-body p-md-5 text-black">
 
-<form action="/bookings/create" method="POST">
-  <label> Number of Days:
-    <input type="number" name="numberOfDays" />
-  </label>
+                <h3 class="text-uppercase">Create a Booking</h3>
 
-  <label for="user-select"> Users:
-    <select name="client">
-      <option disable selected value=""></option>
-      {{#each listOfUsers}}
-        <option value="{{this._id}}"> {{this.username}} </option>
-      {{/each}}
-    </select>
-  </label>
+                <form action="/bookings/create" method="POST">
 
-  <label for="car-select"> Cars:
-    <select name="bookedCar">
-      <option disable selected value=""></option>
-      {{#each listOfCars}}
-        <option value="{{this._id}}"> {{this.make}} {{this.model}} </option>
-      {{/each}}
-    </select>
-  </label>
-  <br>
+                  <label for="numberOfDays">Number of Days:</label>
+                  <input type="number" name="numberOfDays" class="form-control">
+  
+                  <label for="user-select">Select client:</label>
+                  <select name="client" class="form-control">
+                    <option disable selected value=""></option>
+                    {{#each listOfUsers}}
+                    <option value="{{this._id}}"> {{this.username}} </option>
+                    {{/each}}
+                  </select>
+  
+                  <label for="car-select">Select car:</label>
+                  <select name="bookedCar" class="form-control">
+                    <option disable selected value=""></option>
+                    {{#each listOfCars}}
+                    <option value="{{this._id}}"> {{this.make}} {{this.model}} </option>
+                    {{/each}}
+                  </select>
 
-  <button type="submit"> Create the Booking </button>
-</form>
+                  <button class="btn btn-lg btn-success my-4" type="submit">Create Booking</button>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
