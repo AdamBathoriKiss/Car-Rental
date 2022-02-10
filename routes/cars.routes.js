@@ -3,7 +3,7 @@ const router = require("express").Router();
 const User = require("../models/Users.model");
 const Car = require("../models/Cars.model");
 const fileUploader = require('../config/cloudinary.config');
-const { isLoggedOut, isLoggedIn } = require("../middleware/route-guard");
+const { isLoggedOut, isLoggedIn, isAgent } = require("../middleware/route-guard");
 
 // GET route for cars/create:
 router.get('/cars/create', (req, res, next) => {
