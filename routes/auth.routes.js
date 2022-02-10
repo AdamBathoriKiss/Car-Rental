@@ -75,7 +75,6 @@ router.get('/logout', (req, res, next) => {
   });
 });
 
-
 // GET route to user proile page:
 router.get('/userProfile', isLoggedIn, (req, res) => {
   res.render('users/user-profile', { userInSession: req.session.currentUser });
@@ -84,8 +83,6 @@ router.get('/userProfile', isLoggedIn, (req, res) => {
 // GET route to display the form to update user profile:
 router.get('/users/:userId/edit-profile', isLoggedIn, (req, res, next) => {
   const { userId } = req.params;
-
-  console.log(req.params);
  
   User.findById(userId)
     .then(userToEdit => res.render('users/edit-profile', { user: userToEdit }))
@@ -101,7 +98,5 @@ router.post('/users/:userId/edit-profile', isLoggedIn, (req, res, next) => {
     .then(() => res.redirect(`/userProfile`))
     .catch(err => console.log('Error while retrieving user details: ', err));
 });
-
-
 
 module.exports = router;
