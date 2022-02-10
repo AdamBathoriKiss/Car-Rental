@@ -1,14 +1,41 @@
-<div class="container bg-light p-5">
-    <div class="row">
+<section class="h-100 user-profile">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card my-4">
+          <div class="row g-0">
+            <div class="col-xl-12 bg-white bg-gradient border border-info">
 
-    <h2>User Profile</h2>
+              {{#if userInSession}}
+                <div class="card-body p-md-5 text-black">
 
-    {{#if userInSession}}
-        <h4>Welcome, {{ userInSession.username }}!</h4>
-        <p><a class="btn btn-lg btn-warning" href="/users/{{userInSession._id}}/edit-profile">Edit my profile</a></p>
-    {{else}}
-        <p>Please log in.</p>
-    {{/if}}
+                    <h3 class="text-uppercase">User Profile</h3>
 
+                    <hr />
+
+                    <h4>{{userInSession.username}}</h4>
+                    <h6>{{userInSession.email}}</h6>
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Name:</b> {{userInSession.firstName}} {{userInSession.lastName}}</li>
+                        <li class="list-group-item"><b>Date of Birth:</b> {{userInSession.dateOfBirth}}</li>
+                        <li class="list-group-item"><b>ID Card Number:</b> {{userInSession.idCardNumber}}</li>
+                        <li class="list-group-item"><b>Driver License ID Number:</b> {{userInSession.idDriverLicense}}</li>
+                        <li class="list-group-item"><b>Address:</b> {{userInSession.address}}</li>
+                    </ul>
+                </div>
+
+                <div class="card-body p-md-5 text-black">
+                    <a class="btn btn-lg btn-warning" href="/users/{{userInSession._id}}/edit-profile">Edit my profile</a>
+                </div>
+              {{else}}
+                <p>Please log in.</p>
+              {{/if}}
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
