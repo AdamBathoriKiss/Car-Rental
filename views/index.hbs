@@ -1,37 +1,36 @@
-<section id="intro">
+<section id="intro" class="p-5">
   <div class="container">
     <div class="row">
-      <h2 class="text-center py-5">Browse our cars!</h2>
+      <h2 class="text-center m-0">Browse our cars!</h2>
     </div>
   </div>
 </section>
 
-<section id="cars" class="bg-light">
+<section id="cars" class="p-5">
   <div class="container">
     <div class="row">
-     
 
-  {{#each cars}}
-   <div class="card col-md-4">
-  <img src="{{imageUrl}}" class="card-img-top" alt="Honda Civic">
-  <div class="card-body">
-    <h5 class="card-title">{{this.make}}{{this.model}}</h5>
-    <p class="card-text">8th Generation of Honda Civic is perfect choice for family vacation.</p>
+      {{#each cars}}
+      <div class="card col-md-4 p-0">
+        <img class="card-img-top" src="{{imageUrl}}" alt="{{this.make}} {{this.model}}">
+        <div class="card-body">
+        <h5 class="card-title">{{this.make}} {{this.model}}</h5>
+        <p class="card-text"><i>{{this.description}}</i></p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><b>Make:</b> {{this.make}} </li>
+          <li class="list-group-item"><b>Model:</b> {{this.model}}</li>
+          <li class="list-group-item"><b>Year:</b> {{this.yearOfProd}}</li>
+          <li class="list-group-item"><b>Engine:</b> {{this.engine}}</li>
+          <li class="list-group-item"><b>Transmission:</b> {{this.transmission}}</li>
+          <li class="list-group-item"><b>Fuel:</b> {{this.fuel}}</li>
+          <li class="list-group-item"><b>Extras:</b> {{this.extras}} </li>
+          <li class="list-group-item"><b>Cost:</b> {{this.rentalCost}}</li>
+          <li class="list-group-item"><b>Status:</b> {{this.status}}</li>
+        </ul>
+      </div>
+    </div>
+    {{/each}}
+
+    </div>
   </div>
-    <ul>
-    <li class="list-group-item"><b>Make:</b> {{this.make}} </li>
-    <li class="list-group-item"><b>Model:</b>  {{this.model}}</li>
-    <li class="list-group-item"><b>Year:</b>{{this.yearOfProd}}</li>
-    <li class="list-group-item"><b>Engine:</b>{{this.engine}}</li>
-    <li class="list-group-item"><b>Transmission:</b> {{this.transmission}}</li>
-    <li class="list-group-item"><b>Fuel:</b> {{this.fuel}}</li>
-    <li class="list-group-item"><b>Extras:</b> {{this.extras}} </li>
-    <li class="list-group-item"><b>Cost:</b> {{this.rentalCost}}</li>
-    <li class="list-group-item"><b>Status:</b> {{this.status}}</li>
-  </ul> 
-    </div>
-  {{/each}}
-
-</div>
-    </div>
 </section>
