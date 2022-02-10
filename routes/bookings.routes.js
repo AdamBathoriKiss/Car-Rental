@@ -30,7 +30,7 @@ router.post('/bookings/create', (req, res, next) => {
 });
 
 // GET route to display all the bookings
-router.get('/bookings', (req, res, next) => {
+router.get('/bookings', isLoggedIn, (req, res, next) => {
 
   Booking.find()
     .populate('client bookedCar')
@@ -76,7 +76,7 @@ router.post('/bookings/:bookingId/edit', (req, res, next) => {
 });
 
 // POST route to delete a booking from the database:
-router.post('/bookings/:bookingId/delete', isLoggedIn, (req, res, next) => {
+router.post('/bookings/:bookingId/delete', (req, res, next) => {
   const { bookingId } = req.params;
  
   Booking.findByIdAndDelete(bookingId)
