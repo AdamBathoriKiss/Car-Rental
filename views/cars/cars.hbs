@@ -27,10 +27,11 @@
           <li class="list-group-item"><b>Cost:</b> {{this.rentalCost}}</li>
           <li class="list-group-item"><b>Status:</b> {{this.status}}</li>
         </ul>
+       
         <form action="/cars/{{_id}}/delete" method="POST"> 
     <a class="btn btn-warning" href="/cars/{{_id}}/edit">Edit</a>
     <button class="btn btn-danger">Delete</button>
-    
+ 
         </form>
       </div>
     </div>

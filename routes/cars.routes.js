@@ -52,7 +52,7 @@ router.get('/cars/:carId', (req, res, next) => {
 // GET route to display the form to update a specific car
 router.get('/cars/:carId/edit', (req, res, next) => {
   const { carId } = req.params;
- 
+  
   Car.findById(carId)
     // .populate('engine')
     .then(carToEdit => res.render('cars/edit', { car: carToEdit }))
