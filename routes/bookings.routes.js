@@ -1,28 +1,17 @@
 const router = require("express").Router();
 
-const User = require("../models/Users.model");
 const Car = require("../models/Cars.model");
+const User = require("../models/Users.model");
 const Booking = require("../models/Bookings.model");
 const { isLoggedOut, isLoggedIn, isAgent } = require("../middleware/route-guard");
 
 // GET route to display the form to create a new booking
 router.get('/bookings/create', (req, res, next) => {
-
-  /*
-  Car.find()
-  .then(listOfCars => res.render('bookings/create', { listOfCars }))
-  User.find()
-  .then(listOfUsers => res.render('bookings/create', { listOfUsers }))
-  .catch(err => console.log('Error retrieving cars list: ', err))
-*/
-
-
-
   Car.find({}, function (req1, res1) {
     User.find({}, function (req2, res2) {
           res.render('bookings/create', { listOfCars: res1, listOfUsers: res2 });
-      });
     });
+  });
 });
 
 // POST route to submit the form to create a booking
@@ -72,11 +61,11 @@ router.get('/bookings/:bookingId/edit', async (req, res, next) => {
         });
 
   } catch (error) {
-    console.log('error :>> ', error);
+    console.log('error: ', error);
   }
 });
   
-// POST route to actually make updates on user profile:
+// POST route to actually make updates on booking:
 router.post('/bookings/:bookingId/edit', (req, res, next) => {
   const { bookingId } = req.params;
   const { client, numberOfDays, bookedCar } = req.body;
@@ -84,6 +73,15 @@ router.post('/bookings/:bookingId/edit', (req, res, next) => {
   Booking.findByIdAndUpdate(bookingId, { client, numberOfDays, bookedCar })
     .then(() => res.redirect(`/bookings`))
     .catch(err => console.log('Error while retrieving user details: ', err));
+});
+
+// POST route to delete a booking from the database:
+router.post('/bookings/:bookingId/delete', isLoggedIn, (req, res, next) => {
+  const { bookingId } = req.params;
+ 
+  Booking.findByIdAndDelete(bookingId)
+    .then(() => res.redirect('/bookings'))
+    .catch(error => next(error));
 });
 
 module.exports = router;

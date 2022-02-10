@@ -1,28 +1,46 @@
-<h2>Edit Booking</h2>
+<section class="h-100 user-profile">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card my-4">
+          <div class="row g-0">
+            <div class="col-xl-12 bg-white bg-gradient border border-info">
+              <div class="card-body p-md-5 text-black">
 
-<form action="/bookings/{{foundBooking._id}}/edit" method="POST" style="background-color: #FFFFFF;">
-  <label> Number of Days:
-    <input type="number" name="numberOfDays" value="{{foundBooking.numberOfDays}}" />
-  </label>
+                <h2>Edit Booking</h2>
 
-  <label for="user-select"> Users:
-    <select name="client">
-      <option disable selected value=""></option>
-      {{#each allUsers}}
-        <option value="{{this._id}}"> {{this.username}} </option>
-      {{/each}}
-    </select>
-  </label>
+                <form action="/bookings/{{foundBooking._id}}/edit" method="POST">
 
-  <label for="car-select"> Cars:
-    <select name="bookedCar">
-      <option disable selected value=""></option>
-      {{#each allCars}}
-        <option value="{{this._id}}"> {{this.make}} {{this.model}} </option>
-      {{/each}}
-    </select>
-  </label>
-  <br>
+                    <label for="numberOfDays">Number of Days:</label>
+                    <input class="form-control" type="number" name="numberOfDays" value="{{foundBooking.numberOfDays}}" />
 
-  <button type="submit"> Create the Booking </button>
-</form>
+                    <label for="client">Users:</label>
+                    <select class="form-control" name="client">
+                        <option disable selected value=""></option>
+                        {{#each allUsers}}
+                            <option value="{{this._id}}"> {{this.username}} </option>
+                        {{/each}}
+                    </select>
+
+                    <label for="bookedCar">Cars:</label>
+                    <select class="form-control" name="bookedCar">
+                        <option disable selected value=""></option>
+                        {{#each allCars}}
+                            <option value="{{this._id}}"> {{this.make}} {{this.model}} </option>
+                        {{/each}}
+                    </select>
+
+                    <button class="btn btn-lg btn-success my-4" type="submit">Update this booking</button>
+
+                    <a class="btn btn-lg btn-warning my-4" href="/bookings">Cancel</a>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

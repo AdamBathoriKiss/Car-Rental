@@ -36,13 +36,13 @@ router.post('/signup', (req, res, next) => {
       .catch(error => next(error));
 });
 
-// GET route ==> to display the login form to users
-router.get('/login', (req, res) => res.render('auth/login'));
+// GET route to display the login form to users
+router.get('/login', isLoggedOut, (req, res) => res.render('auth/login'));
 
-// POST login route ==> to process form data
+// POST login route to process form data
 router.post('/login', (req, res, next) => {
 
-  console.log('SESSION =====> ', req.session);
+  console.log('SESSION: ', req.session);
 
   const { username, password } = req.body;
  
