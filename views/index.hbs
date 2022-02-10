@@ -1,7 +1,7 @@
 <section id="intro" class="p-5">
   <div class="container">
     <div class="row">
-      <h2 class="text-center m-0">Browse our cars!</h2>
+      <h2 class="text-center text-white text-uppercase fw-bolder m-0"><span class="text-info">Browse</span> our cars!</h2>
     </div>
   </div>
 </section>
@@ -11,7 +11,7 @@
     <div class="row">
 
       {{#each cars}}
-      <div class="card col-md-4 p-0">
+      <div class="card col-md-4 p-0 bg-gradient border border-info">
         <img class="card-img-top" src="{{imageUrl}}" alt="{{this.make}} {{this.model}}">
         <div class="card-body">
         <h5 class="card-title">{{this.make}} {{this.model}}</h5>

@@ -11,3 +11,13 @@ a {
 h1 {
   color: 15px;
 }
+
+#intro h2 {
+  text-shadow: 0px 0px 10px #111111;
+}
+
+.btn {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #FFFFFF;
+}
