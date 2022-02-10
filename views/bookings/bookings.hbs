@@ -1,0 +1,21 @@
+<section id="bookings" class="p-5">
+  <div class="container">
+    <div class="row">
+
+      {{#each bookings}}
+      <div class="card col-md-12 p-0 my-2 bg-gradient border border-info">
+        <div class="card-body">
+        <h5 class="card-title"><b>Booked Car:</b> {{this.bookedCar.make}}</h5>
+        <p class="card-text"><b>Booked by:</b> <i>{{this.client.username}}</i></p>
+        <p class="card-text"><b>Number of days:</b> <i>{{this.numberOfDays}}</i></p>
+        <a class="btn btn-warning" href="/bookings/{{this._id}}/edit">Edit</a>
+        <form action="/cars/{{this._id}}/delete" method="POST">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+    {{/each}}
+
+    </div>
+  </div>
+</section>

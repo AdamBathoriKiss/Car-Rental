@@ -52,7 +52,7 @@ const userSchema = new Schema({
     type: Boolean,
     default: false
   },
-  rentedCars: [{ type: Schema.Types.ObjectId, ref: 'Cars' }]
+  bookings: [{ type: Schema.Types.ObjectId, ref: "Bookings" }]
 });
 
 const Users = mongoose.model('User', userSchema);
