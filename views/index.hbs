@@ -7,30 +7,37 @@
 </section>
 
 <section id="browse-cars">
-  <div class="container">
-    <div class="row">
-
-      {{#each cars}}
-      <div class="card col-md-4 p-0 bg-gradient border border-info">
-        <img class="card-img-top" src="{{imageUrl}}" alt="{{this.make}} {{this.model}}">
-        <div class="card-body">
-        <h5 class="card-title">{{this.make}} {{this.model}}</h5>
-        <p class="card-text"><i>{{this.description}}</i></p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><b>Make:</b> {{this.make}}</li>
-          <li class="list-group-item"><b>Model:</b> {{this.model}}</li>
-          <li class="list-group-item"><b>Year:</b> {{this.yearOfProd}}</li>
-          <li class="list-group-item"><b>Engine:</b> {{this.engine}}</li>
-          <li class="list-group-item"><b>Transmission:</b> {{this.transmission}}</li>
-          <li class="list-group-item"><b>Fuel:</b> {{this.fuel}}</li>
-          <li class="list-group-item"><b>Extras:</b> {{this.extras}} </li>
-          <li class="list-group-item"><b>Cost:</b> {{this.rentalCost}}</li>
-          <li class="list-group-item"><b>Status:</b> {{this.status}}</li>
-        </ul>
+  <div class="album py-5">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {{#each cars}}
+        <div class="col">
+          <div class="card shadow-sm border border-info">
+            <img class="card-img-top" src="{{imageUrl}}" alt="{{this.make}} {{this.model}}">
+            <div class="card-body">
+              <h5 class="card-title">{{this.make}} {{this.model}}</h5>
+              <p class="card-text">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><b>Make:</b> {{this.make}}</li>
+                  <li class="list-group-item"><b>Model:</b> {{this.model}}</li>
+                  <li class="list-group-item"><b>Year:</b> {{this.yearOfProd}}</li>
+                  <li class="list-group-item"><b>Engine:</b> {{this.engine}}</li>
+                  <li class="list-group-item"><b>Transmission:</b> {{this.transmission}}</li>
+                  <li class="list-group-item"><b>Fuel:</b> {{this.fuel}}</li>
+                  <li class="list-group-item"><b>Extras:</b> {{this.extras}} </li>
+                  <li class="list-group-item"><b>Cost:</b> {{this.rentalCost}}</li>
+                  <li class="list-group-item"><b>Status:</b> {{this.status}}</li>
+                </ul>
+              </p>
+              <p class="card-text"><b>Description:</b><br><i>{{this.description}}</i></p>
+              <div class="d-grid gap-2">
+                <a class="btn btn-lg btn-danger" href="/bookings/create">Book this car</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
       </div>
-    </div>
-    {{/each}}
-
     </div>
   </div>
 </section>
