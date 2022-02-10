@@ -13,19 +13,17 @@ const isLoggedOut = (req, res, next) => {
 }
 
 
-/**function isAgent (req, res, next) {
-  if (req.users.role === 'agent') next();
-  else res.redirect('/login');
+/*const isAgent =  (req, res, next) => {
+  if (req.user.isAgent === true && !req.session.currentUser) {
+  return res.redirect('/login');
+  } next();
 }
+ */
 
-function isAgentOrClient (req, res, next) {
-  if (req.user.role === 'admin' || req.user.role === 'client') next();
-  else res.redirect('/login');
-}
-**/
 
 module.exports = {
     isLoggedIn,
     isLoggedOut,
     
+   
 };
