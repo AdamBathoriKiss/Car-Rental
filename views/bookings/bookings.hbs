@@ -1,20 +1,23 @@
-<section id="bookings" class="p-5">
+<section id="bookings" class="py-5">
   <div class="container">
-    <div class="row">
+    <div class="row g-2">
 
       {{#each bookings}}
-      <div class="card col-md-12 p-0 my-2 bg-gradient border border-info">
+      <div class="card col-12 p-0 bg-gradient border border-info">
         <div class="card-body">
-        <h5 class="card-title"><b>Booked Car:</b> {{this.bookedCar.make}}</h5>
-        <p class="card-text"><b>Booked by:</b> <i>{{this.client.username}}</i></p>
-        <p class="card-text"><b>Number of days:</b> <i>{{this.numberOfDays}}</i></p>
-        <a class="btn btn-warning" href="/bookings/{{this._id}}/edit">Edit</a>
-        <form action="/cars/{{this._id}}/delete" method="POST">
-            <button class="btn btn-danger">Delete</button>
-        </form>
+            <h5 class="card-title"><b>Booked Car:</b> {{this.bookedCar.make}} {{this.bookedCar.model}}</h5>
+            <p class="card-text"><b>Booked by:</b> <i>{{this.client.firstName}} {{this.client.lastName}} ({{this.client.username}})</i></p>
+            <p class="card-text"><b>Number of days:</b> <i>{{this.numberOfDays}}</i></p>
+
+            <div class="d-grid gap-2 d-md-block">
+                <a class="btn btn-warning" href="/bookings/{{this._id}}/edit">Edit</a>
+                <form action="/cars/{{this._id}}/delete" method="POST" style="display: inline-block;">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
       </div>
-    </div>
-    {{/each}}
+      {{/each}}
 
     </div>
   </div>
