@@ -14,7 +14,8 @@ const carSchema = new Schema({
   rentalCost: Number,
   status: String,
   imageUrl: {type: String},
-  description: String
+  description: String,
+  bookings: [{ type: Schema.Types.ObjectId, ref: "Bookings" }]
 });
 
 const Cars = mongoose.model('Cars', carSchema);

@@ -1,0 +1,28 @@
+<h2>Edit Booking</h2>
+
+<form action="/bookings/{{foundBooking._id}}/edit" method="POST" style="background-color: #FFFFFF;">
+  <label> Number of Days:
+    <input type="number" name="numberOfDays" value="{{foundBooking.numberOfDays}}" />
+  </label>
+
+  <label for="user-select"> Users:
+    <select name="client">
+      <option disable selected value=""></option>
+      {{#each allUsers}}
+        <option value="{{this._id}}"> {{this.username}} </option>
+      {{/each}}
+    </select>
+  </label>
+
+  <label for="car-select"> Cars:
+    <select name="bookedCar">
+      <option disable selected value=""></option>
+      {{#each allCars}}
+        <option value="{{this._id}}"> {{this.make}} {{this.model}} </option>
+      {{/each}}
+    </select>
+  </label>
+  <br>
+
+  <button type="submit"> Create the Booking </button>
+</form>
