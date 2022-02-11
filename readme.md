@@ -73,6 +73,18 @@ In here we have the following structure:
 * numberOfDays: Storing the days what booked by clients
 * bookedCar: Storing the booked cars
 
+## Server routes table(Method, Route or URL, Description as columns)
+
+| Route              | Description           |
+| -------------      |:-------------:|
+| Home               | Direct to the home page |
+| Sign Up            | Direct to the signup page      |
+| Log In             | Direct to the Login page     |
+| Cars               | If user not logged in, direct to the login page,     else direct to the cars page.    |
+| User Profile   | If user not logged in, direct to the login page, else direct to the cars page.       |
+| Logout   | Logging out the user     |
+
+
 ## Project link
 
 The link for our application is: https://car-rental92.herokuapp.com/
