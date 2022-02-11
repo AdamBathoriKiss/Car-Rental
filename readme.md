@@ -9,6 +9,10 @@ They can booking, resigning and change the booking days.
 
 As a good developer, we started our project with Wireframes, where we sketch our ideas and created a plan what we could follow.
 
+![Wireframe](wireframe.jpg?raw=true)
+
+
+
 ## Our User Stories
 
 * As a client, I want to see the available cars with all of the necessary parameters to help me decide whether to rent
