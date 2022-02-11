@@ -99,4 +99,13 @@ router.post('/users/:userId/edit-profile', isLoggedIn, (req, res, next) => {
     .catch(err => console.log('Error while retrieving user details: ', err));
 });
 
+// POST route to delete users from the database:
+router.post('/users/:userId/delete', (req, res, next) => {
+  const { userId } = req.params;
+ 
+  User.findByIdAndDelete(userId)
+    .then(() => res.redirect('/users'))
+    .catch(error => next(error));
+});
+
 module.exports = router;
