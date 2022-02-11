@@ -95,6 +95,9 @@ The link for our application is: https://car-rental92.herokuapp.com/
 
 ## Future plans with the project
 
+* Date handling with MongoDb
+* E-mail sender
+* Create the booking editing option for clients
 
 ##  Resources
 
