@@ -1,3 +1,4 @@
+{{#unless session.currentUser.isAgent}}
 <section id="intro" class="p-5">
   <div class="container">
     <div class="row">
@@ -5,6 +6,7 @@
     </div>
   </div>
 </section>
+{{/unless}}
 
 <section id="browse-cars">
   <div class="album py-5">

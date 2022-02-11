@@ -10,18 +10,24 @@
                 <h3 class="text-uppercase">Create a Booking</h3>
 
                 <form action="/bookings/create" method="POST">
-
-                  <label for="numberOfDays">Number of Days:</label>
-                  <input type="number" name="numberOfDays" class="form-control">
   
                   <label for="user-select">Select client:</label>
+                  {{#unless session.currentUser.isAgent}}
+                  <input type="text" name="client" class="form-control" value="{{session.currentUser.username}}" disabled>
+                  {{/unless}}
+                  
+                  {{#if session.currentUser.isAgent}}
                   <select name="client" class="form-control">
                     <option disable selected value=""></option>
                     {{#each listOfUsers}}
-                    <option value="{{this._id}}"> {{this.username}} </option>
+                    <option value="{{this._id}}">{{this.username}}</option>
                     {{/each}}
                   </select>
-  
+                  {{/if}}
+
+                  <label for="numberOfDays">Number of Days:</label>
+                  <input type="number" name="numberOfDays" class="form-control">
+
                   <label for="car-select">Select car:</label>
                   <select name="bookedCar" class="form-control">
                     <option disable selected value=""></option>

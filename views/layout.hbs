@@ -27,25 +27,46 @@
                   <li class="nav-item">
                      <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/cars">Cars</a>
                   </li>
+                  {{#if session.currentUser.isAgent}}
                   <li class="nav-item">
                      <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/bookings">Bookings</a>
                   </li>
+                  {{/if}}
+                  {{#unless session.currentUser}}
                   <li class="nav-item">
                      <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/signup">Sign Up</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/login">Log in</a>
                   </li>
+                  {{/unless}}
                   <li class="nav-item">
                      <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/userProfile">User Profile</a>
                   </li>
+                  {{#if session.currentUser}}
                   <li class="nav-item">
                      <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/logout">Log out</a>
                   </li>
+                  {{/if}}
                </ul>
             </div>
          </div>
       </nav>
+
+      {{#if session.currentUser.isAgent}}
+      <section id="agent-menu" class="my-4">
+         <div class="container">
+            <div class="row p-5 m-0 text-center bg-light bg-gradient border border-info">
+               <h3 class="text-uppercase">Agent Menu</h3>
+               <a class="btn btn-lg btn-info" href="/cars/create">Create a new car</a>
+               <p> </p>
+               <a class="btn btn-lg btn-info" href="/bookings">Manage bookings</a>
+               <p> </p>
+               <a class="btn btn-lg btn-info" href="/users">Manage users</a>
+            </div>
+         </div>
+      </section>
+      {{/if}}
 
       {{{body}}}
 
