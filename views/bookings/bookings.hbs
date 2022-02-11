@@ -9,12 +9,14 @@
             <p class="card-text"><b>Booked by:</b> <i>{{this.client.firstName}} {{this.client.lastName}} ({{this.client.username}})</i></p>
             <p class="card-text"><b>Number of days:</b> <i>{{this.numberOfDays}}</i></p>
 
+            {{#if ../session.currentUser.isAgent}}
             <div class="d-grid gap-2 d-md-block">
                 <a class="btn btn-lg btn-warning" href="/bookings/{{this._id}}/edit">Edit</a>
                 <form action="/bookings/{{this._id}}/delete" method="POST" style="display: inline-block;">
                     <button class="btn btn-lg btn-danger">Delete</button>
                 </form>
             </div>
+            {{/if}}
         </div>
       </div>
       {{/each}}
