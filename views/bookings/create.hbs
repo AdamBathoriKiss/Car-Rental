@@ -13,7 +13,7 @@
   
                   <label for="client">Select client:</label>
                   {{#unless session.currentUser.isAgent}}
-                  <input type="text" name="client" class="form-control" value="{{session.currentUser._id}}" disabled>
+                  <input type="text" name="client" class="form-control" value="{{session.currentUser.username}}" disabled>
                   {{/unless}}
                   
                   {{#if session.currentUser.isAgent}}
