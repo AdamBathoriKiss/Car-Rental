@@ -11,9 +11,9 @@
 
                 <form action="/bookings/create" method="POST">
   
-                  <label for="user-select">Select client:</label>
+                  <label for="client">Select client:</label>
                   {{#unless session.currentUser.isAgent}}
-                  <input type="text" name="client" class="form-control" value="{{session.currentUser.username}}" disabled>
+                  <input type="text" name="client" class="form-control" value="{{session.currentUser._id}}" disabled>
                   {{/unless}}
                   
                   {{#if session.currentUser.isAgent}}
