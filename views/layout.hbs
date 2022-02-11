@@ -42,10 +42,10 @@
                      <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/login">Log in</a>
                   </li>
                   {{/unless}}
+                  {{#if session.currentUser}}
                   <li class="nav-item">
                      <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/userProfile">User Profile</a>
                   </li>
-                  {{#if session.currentUser}}
                   <li class="nav-item">
                      <a class="nav-link text-white text-uppercase fs-5 fw-bold" href="/logout">Log out</a>
                   </li>
