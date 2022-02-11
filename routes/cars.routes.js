@@ -29,15 +29,20 @@ router.post('/cars/create', fileUploader.single('car-cover-image'), (req, res, n
 });
 
 // GET all cars from the database:
-router.get("/cars", isLoggedIn, (req, res) => {
-if(req.session){
-    Car.find()
-    .then((carsFromDB) => res.render("cars/cars", { cars: carsFromDB }))
-    .catch((err) => console.log(`Error while getting cars from the database: ${err}`));
+router.get("/cars", isLoggedIn, async (req, res) => {
+  try {
+    if(req.session) {
+      const carsFromDB = await Car.find()
+
+      res.render("cars/cars", { cars: carsFromDB })
     }
     else {
       res.redirect("/login");
-    }}); 
+    }
+  } catch (error) {
+    console.log(`Error while getting cars from the database: ${error}`);
+  }
+});
 
 // GET route to display the details of a specific car:
 router.get('/cars/:carId', (req, res, next) => {

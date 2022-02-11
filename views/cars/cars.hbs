@@ -22,25 +22,25 @@
                 </ul>
               </p>
               <p class="card-text"><b>Description:</b><br><i>{{this.description}}</i></p>
+
               <div class="d-grid gap-2">
+                <a class="btn btn-lg btn-danger" href="/bookings/create">Book this car</a>
+                <p> </p>
+              </div>
+
+              <div class="d-grid gap-2">
+                {{#if ../session.currentUser.isAgent}}
                 <a class="btn btn-lg btn-warning" href="/cars/{{_id}}/edit">Edit</a>
                 <form action="/cars/{{_id}}/delete" method="POST">
                   <button class="btn btn-lg btn-danger" style="width: 100%;">Delete</button>
                 </form>
+                {{/if}}
               </div>
             </div>
           </div>
         </div>
         {{/each}}
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="create-car-button">
-  <div class="container">
-    <div class="row p-5 text-center">
-      <a class="btn btn-lg btn-info" href="/cars/create">Create a new car</a>
     </div>
   </div>
 </section>

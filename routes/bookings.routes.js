@@ -5,8 +5,8 @@ const User = require("../models/Users.model");
 const Booking = require("../models/Bookings.model");
 const { isLoggedOut, isLoggedIn, isAgent } = require("../middleware/route-guard");
 
-// GET route to display the form to create a new booking
-router.get('/bookings/create', (req, res, next) => {
+// GET route to display the form to create a new booking:
+router.get('/bookings/create', isLoggedIn, (req, res, next) => {
   Car.find({}, function (req1, res1) {
     User.find({}, function (req2, res2) {
           res.render('bookings/create', { listOfCars: res1, listOfUsers: res2 });
@@ -14,7 +14,7 @@ router.get('/bookings/create', (req, res, next) => {
   });
 });
 
-// POST route to submit the form to create a booking
+// POST route to submit the form to create a booking:
 router.post('/bookings/create', (req, res, next) => {
   const { client, numberOfDays, bookedCar } = req.body;
 
@@ -29,27 +29,27 @@ router.post('/bookings/create', (req, res, next) => {
     });
 });
 
-// GET route to display all the bookings
-router.get('/bookings', isLoggedIn, (req, res, next) => {
-
-  Booking.find()
-    .populate('client bookedCar')
-    .then(dbBookings => {
-      res.render('bookings/bookings', { bookings: dbBookings });
-    })
-    .catch(err => {
-      console.log(`Err while getting the bookings from the DB: ${err}`);
-      next(err);
-    });
+// GET route to display all the bookings:
+router.get("/bookings", isLoggedIn, async (req, res) => {
+  try {
+    if(req.session) {
+      const bookingsFromDB = await Booking.find()
+      .populate('client bookedCar')
+      res.render("bookings/bookings", { bookings: bookingsFromDB })
+    }
+    else {
+      res.redirect("/login");
+    }
+  } catch (error) {
+    console.log(`Error while getting bookings from the database: ${error}`);
+  }
 });
 
 // GET route for displaying the booking details page:
 router.get('/bookings/:bookingId/edit', async (req, res, next) => {
   try {
     const { bookingId } = req.params; 
-
     const allUsers = await User.find();
-
     const allCars = await Car.find();
     
     Booking.findById(bookingId)

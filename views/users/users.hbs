@@ -1,16 +1,22 @@
-<div class="container">
-    <div class="row">
+<section id="users" class="py-5">
+  <div class="container">
+    <div class="row g-2">
     
-        <ul class="userlist">
         {{#each users}}
-            <li class="list-group-item">{{this.username}}
-                <a class="btn btn-warning" href="/users/{{_id}}/edit-profile" style="display: inline-block;">Edit</a>
-                <form action="/users/{{_id}}/delete" method="POST" style="display: inline-block;"> 
-                    <button class="btn btn-danger">Delete</button>
-                </form>
-            </li>
+        <div class="card col-12 p-0 bg-gradient border border-info">
+            <div class="card-body">
+                <h5 class="card-title"><b>User:</b> {{this.firstName}} {{this.lastName}} ({{this.username}})</h5>
+
+                <div class="d-grid gap-2 d-md-block">
+                    <a class="btn btn-lg btn-warning" href="/users/{{this._id}}/edit-profile">Edit</a>
+                    <form action="/users/{{this._id}}/delete" method="POST" style="display: inline-block;">
+                        <button class="btn btn-lg btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         {{/each}}
-        </ul>
 
     </div>
-</div>
+  </div>
+</section>
